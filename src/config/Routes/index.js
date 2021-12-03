@@ -3,9 +3,7 @@ import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
     Login,
     Register,
-    Home,
-    Contact,
-    About
+    MainApp
 } from '../../pages'
 
 const Routes = () => {
@@ -19,13 +17,7 @@ const Routes = () => {
                     <Register />
                 </Route>
                 <Route path="/">
-                    <Home />
-                </Route>
-                <Route path="/about">
-                    <About />
-                </Route>
-                <Route path="/contact">
-                    <Contact />
+                    <MainApp />
                 </Route>
             </Switch>
         </Router>
