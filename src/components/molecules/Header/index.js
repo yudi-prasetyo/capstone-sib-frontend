@@ -1,25 +1,35 @@
 import React from "react";
 
-
 const Header = () =>{
     return (
-        <div className="container">
-            <header
-                className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-                <a className="navbar-brand" href="#">SearchingPsikolog</a>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-info text-center px-4">
+            <div className="container">
+                <a className="navbar-brand" href="/">Solutivo</a>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 
-                <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/" className="nav-link px-2 link-secondary">Home</a></li>
-                    <li><a href="/about" className="nav-link px-2 link-dark">Features</a></li>
-                    <li><a href="/contact" className="nav-link px-2 link-dark">About</a></li>
-                </ul>
+                        <li className="nav-item">
+                            <a className="nav-link text-white" href="/">Home</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link text-white" href="/contact">Fitur</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link text-white" href="/about">About</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link bg-light text-dark px-3 mx-3 rounded" href="/login">login</a>
+                        </li>
 
-                <div className="col-md-3 text-end">
-                    <button type="button" className="btn btn-outline-primary me-2">Login</button>
-                    <button type="button" className="btn btn-primary">Sign-up</button>
+                    </ul>
                 </div>
-            </header>
-        </div>
+            </div>
+        </nav>
     )
 }
 
