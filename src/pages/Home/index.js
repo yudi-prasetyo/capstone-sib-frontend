@@ -1,19 +1,31 @@
 import {CardComponents, CarouselContainer} from "../../components"
-import {homeBg} from '../../assets'
-
+import React from "react";
+import {Button, Container} from "react-bootstrap";
+import {iconMain} from "../../assets"
+import {CenteredModal} from "../../components"
+import "./home.css"
 
 const Home = () => {
+    const [modalShow, setModalShow] = React.useState(false);
     return (
-        <div className="container">
-            <div className="row px-2 mt-5 ">
+        <Container>
+            <div className="content">
+            <div className="row px-2 mb-5">
                 <div className="col-sm-12 col-12 col-lg-6 col-md-6 pt-5">
                             <h1 className="display-5 fw-bold">Cari Psikolog</h1>
                             <p className="col-md-8 fs-4">Aplikasi ini merupakan
                                 tempat mencari psikolog.</p>
-                            <button className="btn btn-info btn-lg text-white" type="button">Get Started</button>
+                            <Button className="btn btn-info btn-lg text-white" onClick={() => setModalShow(true)}>
+                                Get Started
+                            </Button>
+
+                    <CenteredModal
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                    />
                 </div>
                 <div className="col-sm-12 col-12 col-lg-6 col-md-6">
-                    <img src={homeBg} alt="gambar" className="img-fluid"/>
+                    <img src={iconMain} alt="gambar" className="img-fluid gambar"/>
                 </div>
             </div>
 
@@ -26,7 +38,8 @@ const Home = () => {
                 <h2 className="text-center display-5" id="fitur">Fitur yang kami sediakan</h2>
                 < CardComponents />
             </div>
-        </div>
+            </div>
+        </Container>
     )
 }
 

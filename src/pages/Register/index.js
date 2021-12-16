@@ -40,9 +40,6 @@ const Register = () => {
             </Row>
             <Row className="mx-auto  p-2">
                 <Col className="text-center">
-                    <a href="/">Kembali ke Home</a>
-                </Col>
-                <Col className="text-center">
                     <a href="/login">Sudah punya akun</a>
                 </Col>
             </Row>

@@ -25,9 +25,6 @@ const Login = () => {
                 </Row>
                 <Row className="mx-auto  p-2">
                     <Col className="text-center">
-                        <a href="/">Kembali ke Home</a>
-                    </Col>
-                    <Col className="text-center">
                         <a href="/register">Belum pernah Daftar</a>
                     </Col>
                 </Row>

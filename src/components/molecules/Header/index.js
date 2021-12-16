@@ -1,5 +1,5 @@
 import React from "react";
-import {Nav, Navbar, Container} from "react-bootstrap";
+import {Nav, Navbar, Container, NavDropdown} from "react-bootstrap";
 
 const Header = () =>{
     return (
@@ -9,9 +9,17 @@ const Header = () =>{
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" >
                     <Nav className="ms-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/about">About Us</Nav.Link>
-                        <Nav.Link href="/login" className="bg-light text-dark px-3 mx-3 rounded text-center">login</Nav.Link>
+                        <NavDropdown
+                            id="nav-dropdown-dark-example"
+                            title="Welcome, User"
+                            menuVariant="dark"
+                        >
+                            <NavDropdown.Item href="/">Beranda</NavDropdown.Item>
+                            <NavDropdown.Item href="/profil">Profil</NavDropdown.Item>
+                            <NavDropdown.Item href="/about">About US</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action/3.4">log out</NavDropdown.Item>
+                        </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

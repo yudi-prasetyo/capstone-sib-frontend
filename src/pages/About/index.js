@@ -3,8 +3,10 @@ import React from 'react';
 import {Row, Col} from "react-bootstrap";
 
 
+
 function About () {
     return(
+
         <div className="container">
             <div className="content">
                 <h1 className="text-center text-info">About Us</h1>

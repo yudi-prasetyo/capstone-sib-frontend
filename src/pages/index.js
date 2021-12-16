@@ -1,8 +1,11 @@
 import About from "./About";
-import Contact from "./Contact";
+
 import Home from "./Home";
 import Login from "./Login";
 import Register from "./Register";
 import MainApp from "./MainApp";
+import PsikologResult from "./PsikologResult";
+import Profil from "./profil";
+import PsikologBooked from "./PsikologBooked";
 
-export {About, Contact, Home, Login, Register, MainApp};
+export {About, Home, Login, Register, MainApp, PsikologResult, Profil, PsikologBooked};

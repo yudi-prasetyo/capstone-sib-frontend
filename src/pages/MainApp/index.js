@@ -2,7 +2,8 @@ import React from "react";
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../Home";
 import About from "../About";
-import Contact from "../Contact";
+import PsikologResult from "../PsikologResult";
+import Profil from "../profil";
 import { Header, Footer } from "../../components";
 
 const MainApp = () => {
@@ -11,14 +12,17 @@ const MainApp = () => {
             <Header />
             <Router>
                 <Switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
                     <Route path="/about">
                         <About />
                     </Route>
-                    <Route path="/contact">
-                        <Contact />
+                    <Route path="/result">
+                        <PsikologResult />
+                    </Route>
+                    <Route path="/profil">
+                        <Profil />
+                    </Route>
+                    <Route path="/" exact>
+                        <Home />
                     </Route>
                 </Switch>
             </Router>
