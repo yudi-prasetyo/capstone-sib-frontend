@@ -7,6 +7,7 @@ const FormBooking = (props) => {
             {...props}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
+            backdrop="static"
             centered
         >
             <Modal.Header closeButton>

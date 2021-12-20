@@ -1,9 +1,10 @@
 import {Container, Row, Col, Button} from "react-bootstrap";
 import React from "react";
-import {FormBooking} from "../../components"
+import {FormBooking, ModalChat} from "../../components"
 
 const PsikologResult = () => {
     const [modalShow, setModalShow] = React.useState(false);
+    const [chatShow, setChatShow] = React.useState(false);
     return(
         <Container>
             <div className="content d-grid gap-5">
@@ -18,9 +19,14 @@ const PsikologResult = () => {
                             <h4>Dr. Cahyadi Setya</h4>
                             <p>Merupakan dokter lulusan UGM </p>
                             <div>
-                                <Button variant="primary" size="sm">
+                                <Button variant="primary" size="sm" onClick={() => setChatShow(true)}>
                                     Chat
                                 </Button>{' '}
+                                <ModalChat
+                                    show={chatShow}
+                                    onHide={() => setChatShow(false)}
+                                />
+
                                 <Button variant="secondary" size="sm" onClick={() => setModalShow(true)}>
                                     Booking
                                 </Button>
