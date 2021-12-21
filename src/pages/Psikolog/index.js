@@ -2,7 +2,7 @@ import {Container, Row, Col, Button} from "react-bootstrap";
 import React from "react";
 import {FormBooking, ModalChat} from "../../components"
 
-const PsikologResult = () => {
+const Psikolog = () => {
     const [modalShow, setModalShow] = React.useState(false);
     const [chatShow, setChatShow] = React.useState(false);
     return(
@@ -43,4 +43,4 @@ const PsikologResult = () => {
     )
 }
 
-export default PsikologResult;
+export default Psikolog;

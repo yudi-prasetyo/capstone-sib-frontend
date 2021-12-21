@@ -2,8 +2,9 @@ import React from "react";
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../Home";
 import About from "../About";
-import PsikologResult from "../PsikologResult";
+import PsikologList from "../PsikologList";
 import Profil from "../profil";
+import Psikolog from "../Psikolog";
 import { Header, Footer } from "../../components";
 
 const MainApp = () => {
@@ -15,8 +16,11 @@ const MainApp = () => {
                     <Route path="/about">
                         <About />
                     </Route>
-                    <Route path="/result">
-                        <PsikologResult />
+                    <Route path="/list">
+                        <PsikologList />
+                    </Route>
+                    <Route path="/psikolog">
+                        <Psikolog />
                     </Route>
                     <Route path="/profil">
                         <Profil />

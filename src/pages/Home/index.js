@@ -2,11 +2,9 @@ import {CardComponents, CarouselContainer} from "../../components"
 import React from "react";
 import {Button, Container} from "react-bootstrap";
 import {iconMain} from "../../assets"
-import {CenteredModal} from "../../components"
 import "./home.css"
 
 const Home = () => {
-    const [modalShow, setModalShow] = React.useState(false);
     return (
         <Container>
             <div className="content">
@@ -15,14 +13,10 @@ const Home = () => {
                             <h1 className="display-5 fw-bold">Cari Psikolog</h1>
                             <p className="col-md-8 fs-4">Aplikasi ini merupakan
                                 tempat mencari psikolog.</p>
-                            <Button className="btn btn-info btn-lg text-white" onClick={() => setModalShow(true)}>
-                                Get Started
+                            <Button className="btn btn-info btn-lg text-white" onClick={event => window.location.href='./list'}>
+                                Cari
                             </Button>
 
-                    <CenteredModal
-                        show={modalShow}
-                        onHide={() => setModalShow(false)}
-                    />
                 </div>
                 <div className="col-sm-12 col-12 col-lg-6 col-md-6">
                     <img src={iconMain} alt="gambar" className="img-fluid gambar"/>
