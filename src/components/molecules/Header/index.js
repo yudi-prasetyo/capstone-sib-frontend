@@ -1,7 +1,15 @@
 import React from "react";
-import {Nav, Navbar, Container, NavDropdown} from "react-bootstrap";
+import {Nav, Navbar, Container, NavDropdown, Button} from "react-bootstrap";
+import { useHistory} from "react-router-dom";
 
 const Header = () =>{
+    let history = useHistory()
+
+    const logoutButton = () => {
+        localStorage.removeItem('token')
+        history.push('/login')
+    }
+
     return (
         <Navbar bg="info" expand="lg" variant="dark" fixed="top">
             <Container>
@@ -18,7 +26,9 @@ const Header = () =>{
                             <NavDropdown.Item href="/profil">Profil</NavDropdown.Item>
                             <NavDropdown.Item href="/about">About US</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">log out</NavDropdown.Item>
+                            <Button variant="primary" onClick={logoutButton}>
+                                logout
+                            </Button>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>

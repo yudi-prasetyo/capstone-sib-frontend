@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL, ENDPOINT } from "../../../config/endpoint";
+import { BASE_URL, ENDPOINT } from "../config";
 
 const registerUser = async (user) => {
     const { data } = await axios.post(ENDPOINT.USERS, user);

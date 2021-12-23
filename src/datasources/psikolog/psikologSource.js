@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ENDPOINT } from "../../../config/endpoint";
+import { ENDPOINT } from "../config";
 
 const registerPsychologist = async (psychologist) => {
     const { data } = await axios.post(ENDPOINT.PSYCHOLOGISTS, psychologist);
@@ -18,7 +18,7 @@ const getAllPsychologists = async () => {
 
 const updatePsychologistById = async (id, psychologist) => {
     const { data } = await axios.put(
-        `${ENDPOINT.PSYCHOLOGISTS}/${id}`, 
+        `${ENDPOINT.PSYCHOLOGISTS}/${id}`,
         psychologist,
         {
             headers: {

@@ -1,10 +1,21 @@
 import {Container, Row, Col, Button} from "react-bootstrap";
-import React from "react";
+import React,{useEffect} from "react";
 import {FormBooking, ModalChat} from "../../components"
+import {getPsychologistById} from "../../datasources/psikolog/psikologSource";
 
-const Psikolog = () => {
+
+const Psikolog = (props) => {
     const [modalShow, setModalShow] = React.useState(false);
     const [chatShow, setChatShow] = React.useState(false);
+    const [resultPsikolog, setResultPsikolog] = React.useState([])
+
+
+    useEffect(() => {
+        const psikologDataById = getPsychologistById(props.match.params.id)
+        psikologDataById.then((res) => setResultPsikolog(res.data.psychologist))
+
+    },[])
+
     return(
         <Container>
             <div className="content d-grid gap-5">
@@ -16,8 +27,8 @@ const Psikolog = () => {
                     </Col>
                     <div className="col">
                         <div className="profil-details">
-                            <h4>Dr. Cahyadi Setya</h4>
-                            <p>Merupakan dokter lulusan UGM </p>
+                            <h4>{resultPsikolog.firstName} {resultPsikolog.lastName} </h4>
+                            <p>{resultPsikolog.email} </p><p>Spesilitis {resultPsikolog.specialities} </p>
                             <div>
                                 <Button variant="primary" size="sm" onClick={() => setChatShow(true)}>
                                     Chat

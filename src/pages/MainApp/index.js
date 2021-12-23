@@ -1,13 +1,28 @@
-import React from "react";
-import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, {useEffect} from "react";
+import {BrowserRouter as Router, Switch, Route ,useHistory  } from "react-router-dom";
 import Home from "../Home";
 import About from "../About";
 import PsikologList from "../PsikologList";
 import Profil from "../profil";
 import Psikolog from "../Psikolog";
 import { Header, Footer } from "../../components";
+import jwt from "jwt-decode";
+
 
 const MainApp = () => {
+
+    let history = useHistory()
+    useEffect(() => {
+        if(localStorage.getItem('token') == null){
+            history.push("/login")
+        }
+    })
+
+    const getID = () => {
+        return  jwt(localStorage.getItem('token'))
+    }
+
+
     return (
         <div>
             <Header />
@@ -19,11 +34,9 @@ const MainApp = () => {
                     <Route path="/list">
                         <PsikologList />
                     </Route>
-                    <Route path="/psikolog">
-                        <Psikolog />
-                    </Route>
+                    <Route path="/psikolog/:id" component={Psikolog} />
                     <Route path="/profil">
-                        <Profil />
+                        <Profil id={getID().id} />
                     </Route>
                     <Route path="/" exact>
                         <Home />
