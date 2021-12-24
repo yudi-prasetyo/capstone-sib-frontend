@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Button, Col, Form, Row} from "react-bootstrap";
 import {registerUser} from "../../datasources/user/userSource";
 import { useHistory } from "react-router-dom";
+import jwt from "jwt-decode";
 
 const Register = () => {
     const [firstName, setFirstName] = useState("")
@@ -19,13 +20,6 @@ const Register = () => {
     })
 
     const onSubmit = () => {
-        console.log(firstName)
-        console.log(lastName)
-        console.log(email)
-        console.log(password)
-        console.log(tanggal)
-        console.log(gender)
-
         registerUser({
             firstName: firstName,
             lastName: lastName,
@@ -35,8 +29,13 @@ const Register = () => {
             gender: gender
         })
             .then(res=> {
-                console.log("Berhasil",res)
+                const decodedToken = jwt(res.token)
+                localStorage.setItem("token", res.token)
+                localStorage.setItem("id", decodedToken.id)
+                localStorage.setItem("role", decodedToken.role)
+                localStorage.setItem("firstName", decodedToken.firstName)
             })
+            .then(()=> history.push("/"))
             .catch(err => {
                 console.log("gagal", err)
             })
