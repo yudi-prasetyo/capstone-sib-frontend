@@ -61,8 +61,8 @@ const ModalChat = (props) => {
                                 && role === "psychologist") ? "right" : "left"; 
 
                             return(
-                                <div className={`details ${messageClass}`}>
-                                    <p>{message.message}</p>
+                                <div className='details'>
+                                    <p className={messageClass}>{message.message}</p>
                                 </div>
                             )
                         })}

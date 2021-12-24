@@ -1,5 +1,6 @@
 .chat-box{
-    height: 300px;
+    min-height: 300px;
+    max-height: 300px;
 }
 
 .details p{
@@ -11,21 +12,34 @@
     color: white;
     border-radius: 18px 18px 0px 18px;
 }
+
+.modal-body {
+    overflow: scroll;
+}
+
 .in{
     background-color: #fefefe;
     color: black;
     border-radius: 18px 18px 18px 0px;
 }
 
-.right {
-    color: #4e4e4e;
-    text-align: right;
-    font-weight: normal;
+.details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
+.right {
+    color: white;
+    background-color: #0d6efd;
+    font-weight: normal;
+    border-radius: 15px 18px 18px 15px;
+    align-self: flex-end;
 }
 
 .left {
     color: #ffffff;
     background-color: grey;
-    border-radius: 15px 18px 18px 0px;
+    border-radius: 15px 18px 18px 15px;
+    align-self: flex-start;
 }
