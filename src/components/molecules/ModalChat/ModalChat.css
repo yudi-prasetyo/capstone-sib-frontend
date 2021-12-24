@@ -18,9 +18,14 @@
 }
 
 .right {
-    color: aqua;
+    color: #4e4e4e;
+    text-align: right;
+    font-weight: normal;
+
 }
 
 .left {
-    color: black;
+    color: #ffffff;
+    background-color: grey;
+    border-radius: 15px 18px 18px 0px;
 }

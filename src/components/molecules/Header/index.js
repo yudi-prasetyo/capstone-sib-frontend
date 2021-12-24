@@ -26,7 +26,7 @@ const Header = () =>{
                             <NavDropdown.Item href="/profil">Profil</NavDropdown.Item>
                             <NavDropdown.Item href="/about">About Us</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <Button variant="primary" onClick={logoutButton}>
+                            <Button className="m-2" variant="primary" onClick={logoutButton}>
                                 Logout
                             </Button>
                         </NavDropdown>

@@ -12,6 +12,7 @@ const PsikologList = () => {
         const datapsikolog = getAllPsychologists()
         datapsikolog.then((res) => setPsikolog(res))
 
+
     }, [])
 
     return(

@@ -53,6 +53,7 @@ const Profil = (props) => {
                     </Col>
                 </Row>
             </div>
+            <PsikologBooked />
         </Container>
     )
 }

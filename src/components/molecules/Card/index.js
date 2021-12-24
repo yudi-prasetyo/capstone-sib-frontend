@@ -9,8 +9,7 @@ const CardComponents = () => {
                     <Card.Body>
                         <Card.Title>Cari Psikolog </Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the bulk of
-                            the card's content.
+                            Dimana Teman teman bisa mencari psikolog yang ada, dengan menyesuaikan waktu dan kesediaan psikolog.
                         </Card.Text>
                     </Card.Body>
                 </Card>
@@ -21,7 +20,7 @@ const CardComponents = () => {
                     <Card.Body>
                         <Card.Title>Konsultasi Chating</Card.Title>
                         <Card.Text>
-                            Teman bisa melakukan chating dengan psikolog yang ada untuk konsultasi masalah yang sedang dialami.
+                            Teman Teman bisa melakukan chating dengan psikolog yang ada untuk konsultasi masalah yang sedang dialami.
                         </Card.Text>
                     </Card.Body>
                 </Card>
@@ -32,7 +31,7 @@ const CardComponents = () => {
                     <Card.Body>
                         <Card.Title>Booking Psikolog</Card.Title>
                         <Card.Text>
-                            Teman bisa melakukan perjanjian dengan psikolog agar bisa menjelaskan permasalahn teman teman secara langsung
+                            Teman bisa melakukan perjanjian dengan psikolog agar bisa menjelaskan permasalahan teman teman secara langsung
                         </Card.Text>
                     </Card.Body>
                 </Card>

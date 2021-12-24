@@ -1,7 +1,18 @@
 import {Container, Table} from "react-bootstrap";
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {getAppointmentsByUserId} from "../../datasources/appointment/appointmentSource";
+import moment from "moment";
 
 const PsikologBooked = () => {
+    const [data, setData ] = useState([])
+
+    useEffect(() =>{
+        const dataBooking = getAppointmentsByUserId(localStorage.getItem("id"))
+        dataBooking.then((res) => {
+            setData(res.data.appointments)
+        })
+
+    },[])
     return(
         <Container>
             <div className="content">
@@ -9,21 +20,25 @@ const PsikologBooked = () => {
                 <Table striped bordered hover size="sm">
                     <thead>
                     <tr>
-                        <th>#</th>
                         <th>Psikolog</th>
-                        <th>Tanggal</th>
-                        <th>Jam</th>
-                        <th>Status</th>
+                        <th>Waktu</th>
+                        <th>Link</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Jadi</td>
-                    </tr>
+                    {
+                        data.map(appoin => {
+                        return (
+                            <tr>
+                                <td>{appoin.psychologistId.firstName} {appoin.psychologistId.lastName}</td>
+                                <td>{moment(appoin.dateTime).format('LLLL')}</td>
+                                <td>{appoin.link}</td>
+                            </tr>
+                        )
+                    })
+
+                    }
+
                     </tbody>
                 </Table>
             </div>
