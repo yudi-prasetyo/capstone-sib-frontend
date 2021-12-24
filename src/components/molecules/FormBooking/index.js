@@ -1,7 +1,23 @@
 import {Button, Form, Modal} from "react-bootstrap";
-import React from "react";
+import React, {useState} from "react";
+import { createAppointment } from "../../../datasources/appointment/appointmentSource";
 
 const FormBooking = (props) => {
+    const [date, setDate] = useState("");
+    const [time, setTime] = useState("");
+    const [link, setLink] = useState("");
+
+    const onSubmit = async () => {
+        const userId = localStorage.getItem("id");
+        const psychologistId = props.psychologist._id;
+        const dateTime = `${date}T${time}`;
+        await createAppointment({userId, psychologistId, dateTime, link});
+
+        setDate("");
+        setTime("");
+        setLink("");
+    }
+
     return(
         <Modal
             {...props}
@@ -18,31 +34,30 @@ const FormBooking = (props) => {
             <Modal.Body>
                 <h4>Isi Form </h4>
                 <Form>
-
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Tanggal Pertemuan</Form.Label>
-                        <Form.Control type="date" placeholder="Enter email" />
+                        <Form.Control type="date" placeholder="Masukkan tanggal pertemuan" value={date}
+                                    onChange={(e) => setDate(e.target.value)}
+                        />
                     </Form.Group>
 
-                    <div className="form-group">
-                        <label htmlFor="exampleFormControlSelect1">Jam</label>
-                        <select className="form-control" id="exampleFormControlSelect1">
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option><option>17</option>
-                        </select>
-                    </div>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Jam</Form.Label>
+                        <Form.Control type="time" placeholder="Masukkan waktu pertemuan" value={time}
+                                    onChange={(e) => setTime(e.target.value)}
+                        />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" >
+                        <Form.Label>Link</Form.Label>
+                        <Form.Control type="text" placeholder="Masukkan link pertemuan" value={link}
+                                      onChange={(e) => setLink(e.target.value) }
+                        />
+                    </Form.Group>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={()=>{console.log("hihih")}}>Submit</Button>
+                <Button onClick={onSubmit}>Submit</Button>
             </Modal.Footer>
         </Modal>
     )

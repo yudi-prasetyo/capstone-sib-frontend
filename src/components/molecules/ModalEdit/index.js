@@ -1,42 +1,51 @@
 import {Button, Form, Modal} from "react-bootstrap";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import moment from "moment";
 import {updateUserById} from "../../../datasources/user/userSource";
-import jwt from "jwt-decode";
 
 const ModalEdit = (props) => {
-    const [id , setId ] = useState("")
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [email, setEmail ] = useState("")
-    const [password, setPassword ] = useState("")
     const [tanggal, setTanggal ] = useState("")
     const [gender, setGender ] = useState("")
 
-    const getID = () => {
-        return  jwt(localStorage.getItem('token'))
-    }
+    useEffect(() => {
+        setFirstName(props.user.firstName);
+        setLastName(props.user.lastName);
+        setEmail(props.user.email);
+        setTanggal(moment(props.user.dateOfBirth).format('YYYY-MM-DD'));
+        setGender(props.user.gender);
+    }, [])
 
     const onSubmit = () => {
-        console.log(firstName)
-        console.log(lastName)
-        console.log(email)
-        console.log(password)
-        console.log(tanggal)
-        console.log(gender)
-        setId(getID.id)
+        const id = localStorage.getItem("id");
 
-        updateUserById({id},
+        updateUserById(id,
             {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
-                password: password,
                 dateOfBirth: tanggal,
                 gender: gender
             }
-        ).then(res =>{console.log(res)})
-    }
+        ).then(res => {        
+            props.userHandler({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                dateOfBirth: tanggal,
+                gender: gender
+            }
+        )})
 
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setTanggal("");
+        setGender("");
+        props.showHandler();
+    }
 
     return(
         <Modal
@@ -78,13 +87,6 @@ const ModalEdit = (props) => {
                         <Form.Label>Tanggal Lahir</Form.Label>
                         <Form.Control type="date" placeholder="Tanggal lahir" value={tanggal}
                                       onChange={(e) => setTanggal(e.target.value)}
-                        />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" value={password}
-                                      onChange={(e) => setPassword(e.target.value)}
                         />
                     </Form.Group>
 

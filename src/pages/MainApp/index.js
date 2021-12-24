@@ -6,8 +6,6 @@ import PsikologList from "../PsikologList";
 import Profil from "../profil";
 import Psikolog from "../Psikolog";
 import { Header, Footer } from "../../components";
-import jwt from "jwt-decode";
-
 
 const MainApp = () => {
 
@@ -17,11 +15,6 @@ const MainApp = () => {
             history.push("/login")
         }
     })
-
-    const getID = () => {
-        return  jwt(localStorage.getItem('token'))
-    }
-
 
     return (
         <div>
@@ -36,7 +29,7 @@ const MainApp = () => {
                     </Route>
                     <Route path="/psikolog/:id" component={Psikolog} />
                     <Route path="/profil">
-                        <Profil id={getID().id} />
+                        <Profil id={localStorage.getItem("id")} />
                     </Route>
                     <Route path="/" exact>
                         <Home />

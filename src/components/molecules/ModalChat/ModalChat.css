@@ -16,3 +16,11 @@
     color: black;
     border-radius: 18px 18px 18px 0px;
 }
+
+.right {
+    color: aqua;
+}
+
+.left {
+    color: black;
+}

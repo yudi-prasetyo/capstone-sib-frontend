@@ -6,7 +6,7 @@ const Header = () =>{
     let history = useHistory()
 
     const logoutButton = () => {
-        localStorage.removeItem('token')
+        localStorage.clear()
         history.push('/login')
     }
 
@@ -19,15 +19,15 @@ const Header = () =>{
                     <Nav className="ms-auto">
                         <NavDropdown
                             id="nav-dropdown-dark-example"
-                            title="Welcome, User"
+                            title={`Welcome, ${localStorage.getItem('firstName')}`}
                             menuVariant="dark"
                         >
                             <NavDropdown.Item href="/">Beranda</NavDropdown.Item>
                             <NavDropdown.Item href="/profil">Profil</NavDropdown.Item>
-                            <NavDropdown.Item href="/about">About US</NavDropdown.Item>
+                            <NavDropdown.Item href="/about">About Us</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <Button variant="primary" onClick={logoutButton}>
-                                logout
+                                Logout
                             </Button>
                         </NavDropdown>
                     </Nav>

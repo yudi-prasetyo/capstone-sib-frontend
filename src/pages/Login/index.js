@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Form, Button, Row, Col} from "react-bootstrap";
 import {loginUser} from "../../datasources/user/userSource";
 import { useHistory } from "react-router-dom";
-
+import jwt from "jwt-decode";
 
 const Login = () => {
     const [email, setEmail ] = useState('');
@@ -28,10 +28,13 @@ const Login = () => {
             password: password
         })
         await response.then((res)=> {
-           localStorage.setItem("token", res.token)
+            const decodedToken = jwt(res.token)
+            localStorage.setItem("token", res.token)
+            localStorage.setItem("id", decodedToken.id)
+            localStorage.setItem("role", decodedToken.role)
+            localStorage.setItem("firstName", decodedToken.firstName)
         })
             .then(()=> refreshPage())
-
     }
 
     return(
